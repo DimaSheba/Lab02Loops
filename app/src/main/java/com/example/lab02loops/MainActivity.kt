@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -47,6 +48,21 @@ fun CycleLabScreen() {
             .padding(20.dp),
         verticalArrangement = Arrangement.Center
     ) {
+        Text(
+            text = "(x−2)(x−4)(x−8)(x−16)(x−32)(x−64)(x−128)",
+            fontSize = 16.sp
+        )
+
+        HorizontalDivider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp)
+        )
+
+        Text(
+            text = "(x−1)(x−3)(x−7)(x−15)(x−31)(x−63)(x−127)",
+            fontSize = 16.sp
+        )
 
         Spacer(modifier = Modifier.height(20.dp))
 
