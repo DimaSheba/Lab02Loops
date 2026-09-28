@@ -17,6 +17,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.pow
 
 class MainActivity : ComponentActivity() {
 
@@ -66,7 +67,31 @@ fun CycleLabScreen() {
 
         Button(
             onClick = {
-                result = ""
+
+                val x = xText.toDoubleOrNull()
+
+                if (x == null) {
+                    result = "Введите корректное число"
+                    return@Button
+                }
+
+                var numerator = 1.0
+                var denominator = 1.0
+
+                for (n in 1..7) {
+
+                    val power = 2.0.pow(n)
+
+                    numerator *= x - power
+                    denominator *= x - (power - 1)
+                }
+
+                if (denominator == 0.0) {
+                    result = "Ошибка: знаменатель равен нулю"
+                } else {
+                    val answer = numerator / denominator
+                    result = answer.toString()
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
